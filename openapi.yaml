@@ -1,0 +1,44 @@
+# SPDX-FileCopyrightText: 2023 Sidings Media
+# SPDX-License-Identifier: MIT
+
+openapi: 3.0.3
+info:
+  title: Sidings Media API
+  description: |
+    General utility APIs for all Sidings Media web based services
+  version: 0.2.0
+  x-logo:
+    url: https://cdn.sidingsmedia.com/logo/logo-white-horizontal-short.svg
+    backgroundColor: '#1976D2'
+    alt: Sidings Media logo
+
+servers:
+  - url: http://localhost:{port}
+    description: Local development
+    variables:
+      port:
+        default: '3000'
+  - url: https://api.sidingsmedia.com/
+    description: Production
+
+tags:
+  - name: messaging
+    description: |
+      Communication channels between Sidings Media and the User
+  - name: docs
+    description: API documentation endpoints
+    
+paths:
+  /docs:
+    $ref: paths/docs/index.yaml
+  /messaging/contact:
+    $ref: paths/messaging/contact.yaml
+  
+  /stats/views:
+    $ref: paths/stats/views.yaml
+
+  /openapi.json:
+    $ref: paths/openapi.json.yaml  
+  /terms:
+    $ref: paths/terms.yaml
+  

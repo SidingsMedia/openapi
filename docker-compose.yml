@@ -3,10 +3,7 @@
 
 version: "3.9"
 services:
-  <service>:
+  openapi:
     build: .
     ports:
-      - "3000:3000"
-    environment:
-      - TRUSTED_PROXIES=${TRUSTED_PROXIES:-*}
-      - GIN_MODE=${GIN_MODE:-release}
+      - "3000:80"

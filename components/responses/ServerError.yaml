@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2023 Sidings Media
+# SPDX-License-Identifier: MIT
+
+description: An unexpected server error
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/GeneralError.yaml
+    example:
+      code: 500
+      message: Unexpected error

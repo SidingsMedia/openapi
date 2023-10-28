@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: 2023 Sidings Media
+# SPDX-License-Identifier: MIT
+
+description: The rate limit has been exceeded
+headers:
+  Retry-After:
+    schema:
+      type: integer
+    description: |
+      Number of seconds until the client should retry the request
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/GeneralError.yaml
+    example:
+      code: 429
+      message: Too many requests

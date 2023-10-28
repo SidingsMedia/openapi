@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2023 Sidings Media
+# SPDX-License-Identifier: MIT
+
+post:
+  description: Send a message to Sidings Media
+  tags:
+    - messaging
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/Message.yaml
+  responses:
+    '204':
+      description: Created
+    '400':
+      $ref: ../../components/responses/BadRequest.yaml
+    '429':
+      $ref: ../../components/responses/TooManyRequests.yaml
+    5XX:
+      $ref: ../../components/responses/ServerError.yaml

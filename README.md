@@ -3,28 +3,18 @@ SPDX-FileCopyrightText: 2022-2023 Sidings Media <contact@sidingsmedia.com>
 SPDX-License-Identifier: MIT
 -->
 
-# <Service>
+# openapi
 
-This repo contains the source for the <service> service, part of Sidings
-Media's public API
+This repo contains the OpenAPI specification for Sidings Media's public
+API services, including all endpoints that are accessible to the public
+without authentication, as well as authenticated endpoints that appear
+in public source code. This repo is the source of truth for the API.
+
+This repo also contains the API documentation build script and API
+documentation service that is deployed to form the `/docs` and
+`/openapi.json` endpoints for the API.
 
 ## Building
-
-### Binary
-
-This project is written in go so you will need this to be installed.
-
-First download the project dependancies.
-
-```
-go mod download
-```
-
-And then you can compile the binary.
-
-```
-go build -a -o server
-```
 
 ### Docker
 
@@ -43,30 +33,10 @@ container. This may take a while.
 
 ## Running
 
-### Environment variables
-
-This service requires certain environment variables in order to function
-correctly. An example `.env` file can be found in the document root
-(`.env.example`). Below is a complete table of all environment
-variables.
-
-| Name              | Required           | Description                                                                                                         | Example                                       |
-|-------------------|--------------------|---------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| `BIND_ADDR`       | :x:                | This is the address to bind the server to. Defaults to `[::1]:3000`.                                                | `[::]:3000`                                   |
-| `TRUSTED_PROXIES` | :x:                | Proxy servers to trust when reading client IP headers. Provide addresses in a comma separated list.Defaults to `*`. | `192.0.2.1,192.0.2.2,2001:db8::1,2001:db8::2` |
-| `GIN_MODE`        | :x:                | Mode to run Gin in. Only set to `debug` for development. Defaults to `release`.                                     | `release`                                     |
-
-### Binary
-
-If you are using the binary to run the service, you have two options for
-setting the environment variables. One is to actually set them on the
-system, the other option is to store the settings in a .env file which
-will be automatically loaded on start.
-
 ### Docker
 
 ```
-docker run --publish 3000:3000 -d --name messaging ghcr.io/sidingsmedia/<service>
+docker run --publish 3000:3000 -d --name messaging ghcr.io/sidingsmedia/openapi
 ```
 
 To add the environment variables, you can use multiple `-e` flags. For

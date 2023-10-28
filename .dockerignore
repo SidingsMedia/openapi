@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2023 Sidings Media
+# SPDX-License-Identifier: CC0-1.0
+
+# Only include the following files
+
+**/*
+
+!conf/
+!openapi.yaml
+!paths/*
+!components/*
+!package.json
+!package-lock.json

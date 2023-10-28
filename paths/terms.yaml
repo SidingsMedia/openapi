@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2023 Sidings Media
+# SPDX-License-Identifier: MIT
+
+get:
+  description: API terms of use
+  tags:
+    - docs
+  responses:
+    '200':
+      description: Terms
+      content:
+        text/plain:
+          schema:
+            type: string
+    5XX:
+      $ref: ../components/responses/ServerError.yaml

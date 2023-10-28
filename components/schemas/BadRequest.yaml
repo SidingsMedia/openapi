@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2023 Sidings Media
+# SPDX-License-Identifier: MIT
+
+type: object
+properties:
+  code:
+    type: integer
+    description: HTTP response code
+  message:
+    type: string
+    description: Human readable error message
+  fields:
+    type: array
+    items:
+      type: object
+      properties:
+        field:
+          type: string
+          description: Name of field
+        condition:
+          type: string
+          description: |
+            The condition that caused the binding to fail

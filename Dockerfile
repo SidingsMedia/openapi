@@ -1,34 +1,32 @@
 # SPDX-FileCopyrightText: 2023 Sidings Media
 # SPDX-License-Identifier: MIT
 
-FROM golang:latest as build
+FROM node:16 as build
 
-## Build
 WORKDIR /build
 
-COPY go.mod /build
-COPY go.sum /build
+# Install dependancies
+COPY package.json package-lock.json /build/
+RUN npm ci
 
-# Download go modules
-RUN go mod download
+# Generate OpenAPI files
+COPY openapi.yaml /build/openapi.yaml
+COPY components /build/components
+COPY paths /build/paths
+RUN npm run openapi:generate
+RUN npm run openapi:convert
 
-# Copy all files
-COPY . /build
-
-# Compile binary
-RUN CGO_ENABLED=0 go build -a -o server
-
-## Deploy
-FROM gcr.io/distroless/base-debian10
+FROM nginx:stable-alpine as deploy
 
 WORKDIR /
 
-COPY --from=build /build/server /server
+# Clean out files
+RUN rm /usr/share/nginx/html/*
+RUN rm /etc/nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
-ENV GIN_MODE=release
+# Copy files
+COPY --from=build /build/openapi.html /usr/share/nginx/html/openapi.html
+COPY --from=build /build/openapi.json /usr/share/nginx/html/openapi.json
 
-EXPOSE 3000/tcp
-
-USER nonroot:nonroot
-
-ENTRYPOINT ["/server"]
+# Copy config
+COPY conf /etc/nginx

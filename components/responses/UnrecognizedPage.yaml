@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2023 Sidings Media
+# SPDX-License-Identifier: MIT
+
+description: The page provided is not recognized
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/GeneralError.yaml
+    example:
+      code: 403
+      message: Unrecognized domain for page

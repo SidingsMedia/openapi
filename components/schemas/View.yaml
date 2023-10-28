@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2023 Sidings Media
+# SPDX-License-Identifier: MIT
+
+type: object
+properties:
+  page:
+    type: string
+    description: Full URI of page
+    format: uri
+required:
+  - page

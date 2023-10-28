@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2023 Sidings Media
+# SPDX-License-Identifier: MIT
+
+type: object
+properties:
+  name:
+    type: string
+    description: Users name from contact form
+  email:
+    type: string
+    format: email
+    description: Users email from contact form
+  subject:
+    type: string
+    description: Message subject
+  message:
+    type: string
+    description: Actual message from user
+required:
+  - name
+  - email
+  - subject
+  - message

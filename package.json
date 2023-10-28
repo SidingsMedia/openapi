@@ -1,0 +1,19 @@
+{
+  "name": "openapi",
+  "version": "0.1.0",
+  "description": "API documentation for the Sidings Media API",
+  "main": "index.js",
+  "scripts": {
+    "openapi:generate": "redocly build-docs --output=openapi.html openapi.yaml",
+    "openapi:convert": "redocly bundle -o=openapi.json openapi.yaml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/SidingsMedia/openapi.git"
+  },
+  "author": "Sidings Media",
+  "license": "MIT",
+  "dependencies": {
+    "@redocly/cli": "^1.4.0"
+  }
+}

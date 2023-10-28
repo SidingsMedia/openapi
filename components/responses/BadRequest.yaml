@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: 2023 Sidings Media
+# SPDX-License-Identifier: MIT
+
+description: Request was invalid or malformed
+content:
+  application/json:
+    schema:
+      oneOf:
+        - $ref: ../schemas/GeneralError.yaml
+        - $ref: ../schemas/BadRequest.yaml
+    example:
+      code: 400
+      message: Request was malformed
+      fields:
+        - field: email
+          condition: email
+        - field: name
+          condition: required

@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2023 Sidings Media
+# SPDX-License-Identifier: MIT
+
+post:
+  description: Log a view for a given page
+  tags:
+    - stats
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/View.yaml
+  responses:
+    '204':
+      description: Created
+    '403':
+      $ref: ../../components/responses/UnrecognizedPage.yaml
+    '429':
+      $ref: ../../components/responses/TooManyRequests.yaml
+    5XX:
+      $ref: ../../components/responses/ServerError.yaml
