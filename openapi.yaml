@@ -29,16 +29,12 @@ tags:
     description: API documentation endpoints
     
 paths:
-  /docs:
-    $ref: paths/docs/index.yaml
   /messaging/contact:
     $ref: paths/messaging/contact.yaml
   
   /stats/views:
     $ref: paths/stats/views.yaml
 
-  /openapi.json:
-    $ref: paths/openapi.json.yaml  
   /terms:
     $ref: paths/terms.yaml
   

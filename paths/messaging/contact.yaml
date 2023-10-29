@@ -3,6 +3,7 @@
 
 post:
   description: Send a message to Sidings Media
+  summary: Send contact form message
   tags:
     - messaging
   requestBody:

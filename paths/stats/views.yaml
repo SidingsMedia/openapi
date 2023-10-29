@@ -3,6 +3,7 @@
 
 post:
   description: Log a view for a given page
+  summary: Log view for page
   tags:
     - stats
   requestBody:

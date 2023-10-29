@@ -3,6 +3,7 @@
 
 get:
   description: API terms of use
+  summary: Get API terms of use
   tags:
     - docs
   responses:
