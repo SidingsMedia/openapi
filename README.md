@@ -36,7 +36,7 @@ container. This may take a while.
 ### Docker
 
 ```
-docker run --publish 3000:3000 -d --name messaging ghcr.io/sidingsmedia/openapi
+docker run --publish 3000:80 -d --name messaging ghcr.io/sidingsmedia/openapi
 ```
 
 To add the environment variables, you can use multiple `-e` flags. For

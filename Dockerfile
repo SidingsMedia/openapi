@@ -13,7 +13,6 @@ RUN npm ci
 COPY openapi.yaml /build/openapi.yaml
 COPY components /build/components
 COPY paths /build/paths
-RUN npm run openapi:generate
 RUN npm run openapi:convert
 
 FROM nginx:stable-alpine as deploy
@@ -25,7 +24,6 @@ RUN rm /usr/share/nginx/html/*
 RUN rm /etc/nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy files
-COPY --from=build /build/openapi.html /usr/share/nginx/html/openapi.html
 COPY --from=build /build/openapi.json /usr/share/nginx/html/openapi.json
 
 # Copy config
