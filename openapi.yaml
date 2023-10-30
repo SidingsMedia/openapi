@@ -5,21 +5,64 @@ openapi: 3.0.3
 info:
   title: Sidings Media API
   description: |
-    General utility APIs for all Sidings Media web based services
-  version: 0.2.0
-  x-logo:
-    url: https://cdn.sidingsmedia.com/logo/logo-white-horizontal-short.svg
-    backgroundColor: '#1976D2'
-    alt: Sidings Media logo
+    ## Introduction
+
+    These are the general utility APIs for Sidings Media's online
+    services. The APIs documented here are all open source and can be
+    found in our [GitHub Organisation](https://github.com/SidingsMedia).
+    These APIs include open APIs that require no authentication to
+    access, as well as the open source APIs that require some level of
+    authentication or authorisation to call.
+
+    ## Architecture
+    
+    The underlying API is split into a number of smaller services
+    handling different aspects. There is at least 1 service per first
+    level path directory, i.e. 1 service for `/messaging`, 1 service for
+    `/stats` and so on. A full breakdown of which services map to which
+    paths can be found below, along with links to their respective
+    repositories. 
+
+    | Path Base | Service Name | Repository |
+    |---|---|---|
+    | `/messaging` | `messaging` | https://github.com/SidingsMedia/messaging.git |
+    | `/stats` | `stats` | https://github.com/SidingsMedia/stats.git |
+    | `/terms` | `static` | https://github.com/SidingsMedia/static.git |
+    | `/openapi.json` | `openapi` | https://github.com/SidingsMedia/openapi.git |
+    
+    Each service will expose a health check endpoint that will return a
+    plaintext `200 OK` response when called. This is documented by the
+    specification.
+    
+    ## Operation
+    ### Service Status
+
+    We constantly monitor our API infrastructure to try and prevent
+    issues occurring, and to respond quickly when they do occur, however
+    due to the nature of Sidings Media, we can not guarantee service
+    availability. To view the current status of the API as well as the
+    rest of our web services, you can visit our status page at
+    [status.sidingsmedia.com](https://status.sidingsmedia.com). Here you
+    will find the current service status as well as any notes on
+    incidents or planned maintenance outages.
+
+    ### Rate limits
+    A number of endpoints impose rate limits in order to prevent abuse.
+    For hopefully obvious reasons, the rate limits and the system used
+    to calculate them is not publicly documented. However, for endpoints
+    that do implement a rate limit, you will receive a http `429`
+    response with the `retry-after` header set indicating after how many
+    seconds you should restart making requests. 
+  version: 0.2.1
 
 servers:
+  - url: https://api.sidingsmedia.com/
+    description: Production
   - url: http://localhost:{port}
     description: Local development
     variables:
       port:
         default: '3000'
-  - url: https://api.sidingsmedia.com/
-    description: Production
 
 tags:
   - name: messaging
