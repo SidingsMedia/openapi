@@ -5,7 +5,7 @@ get:
   description: API terms of use
   summary: Get API terms of use
   tags:
-    - docs
+    - static
   responses:
     '200':
       description: Terms
