@@ -26,12 +26,12 @@ info:
     | Path Base | Service Name | Repository |
     |---|---|---|
     | `/messaging` | `messaging` | https://github.com/SidingsMedia/messaging.git |
-    | `/stats` | `stats` | https://github.com/SidingsMedia/stats.git |
     | `/terms` | `static` | https://github.com/SidingsMedia/static.git |
+    | `/openapi` | `openapi` | https://github.com/SidingsMedia/openapi.git |
     | `/openapi.json` | `openapi` | https://github.com/SidingsMedia/openapi.git |
     
     Each service will expose a health check endpoint that will return a
-    plaintext `200 OK` response when called. This is documented by the
+    plaintext `200 OK` response when called. This is documented by this
     specification.
     
     ## Operation
@@ -53,7 +53,7 @@ info:
     that do implement a rate limit, you will receive a http `429`
     response with the `retry-after` header set indicating after how many
     seconds you should restart making requests. 
-  version: 0.2.1
+  version: 0.3.0
 
 servers:
   - url: https://api.sidingsmedia.com/
@@ -74,9 +74,14 @@ tags:
 paths:
   /messaging/contact:
     $ref: paths/messaging/contact.yaml
-  
-  /stats/views:
-    $ref: paths/stats/views.yaml
+  /messaging/health:
+    $ref: paths/messaging/health.yaml
+
+  /openapi/health:
+    $ref: paths/openapi/health.yaml
+
+  /static/health:
+    $ref: paths/static/health.yaml
 
   /terms:
     $ref: paths/terms.yaml

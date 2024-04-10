@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2024 Sidings Media
+# SPDX-License-Identifier: MIT
+
+description: Service is healthy
+content:
+  text/plain:
+    schema:
+      type: string
+    example:
+      healthy
