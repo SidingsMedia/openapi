@@ -13,4 +13,4 @@ get:
     '429':
       $ref: ../../components/responses/TooManyRequests.yaml
     5XX:
-      $ref: ../../components/responses/HealthCheckFail.yaml
+      $ref: ../../components/responses/ServerError.yaml

@@ -1,10 +1,11 @@
 # SPDX-FileCopyrightText: 2024 Sidings Media
 # SPDX-License-Identifier: MIT
 
-description: Service is healthy
+description: Health Check is OK
 content:
-  text/plain:
+  application/json:
     schema:
-      type: string
+      $ref: ../schemas/GeneralError.yaml
     example:
-      healthy
+      code: 200
+      message: OK
