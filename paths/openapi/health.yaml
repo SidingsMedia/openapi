@@ -4,6 +4,7 @@
 get:
   description: Static service health check
   summary: Health check
+  operationId: openapiHealth
   tags:
     - static
   responses:

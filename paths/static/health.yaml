@@ -2,10 +2,11 @@
 # SPDX-License-Identifier: MIT
 
 get:
-  description: OpenAPI service health check
+  description: Static service health check
   summary: Health check
+  operationId: staticHealth
   tags:
-    - openapi
+    - static
   responses:
     '200':
       $ref: ../../components/responses/HealthCheckOK.yaml

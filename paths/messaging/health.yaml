@@ -4,6 +4,7 @@
 get:
   description: Messaging service health check
   summary: Health check
+  operationId: messagingHealth
   tags:
     - messaging
   responses:
