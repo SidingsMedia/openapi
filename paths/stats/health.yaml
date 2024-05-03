@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2024 Sidings Media
+# SPDX-License-Identifier: MIT
+
+get:
+  description: Stats service health check
+  summary: Health check
+  operationId: statsHealth
+  tags:
+    - stats
+  responses:
+    '200':
+      $ref: ../../components/responses/HealthCheckOK.yaml
+    '429':
+      $ref: ../../components/responses/TooManyRequests.yaml
+    5XX:
+      $ref: ../../components/responses/ServerError.yaml
