@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2024 Sidings Media
+# SPDX-License-Identifier: MIT
+
+type: object
+properties:
+  domain:
+    type: string
+    description: Domain of site
+  name:
+    type: string
+    description: Name of event to log.
+  url:
+    type: string
+    format: uri
+    description: URL of page that triggered event
+  referrer:
+    type: string
+    description: Referrer for this event
+  props:
+    type: object
+    description: | 
+      Custom properties for the event. Note maximum of 30 key value
+      pairs. If more than 30 are provided the exceeding keys will be
+      ignored.
+required:
+  - domain
+  - name
+  - url

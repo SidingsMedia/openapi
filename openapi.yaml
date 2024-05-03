@@ -29,6 +29,7 @@ info:
     | `/terms` | `static` | https://github.com/SidingsMedia/static.git |
     | `/openapi` | `openapi` | https://github.com/SidingsMedia/openapi.git |
     | `/openapi.json` | `openapi` | https://github.com/SidingsMedia/openapi.git |
+    | `/stats` | stats | https://github.com/plausible/analytics.git |
     
     Each service will expose a health check endpoint that will return a
     plaintext `200 OK` response when called. This is documented by this
@@ -85,4 +86,10 @@ paths:
 
   /terms:
     $ref: paths/terms.yaml
+
+  /stats/event:
+    $ref: paths/stats/event.yaml
+
+  /stats/health:
+    $ref: paths/stats/health.yaml
   
