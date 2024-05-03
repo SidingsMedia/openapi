@@ -54,7 +54,7 @@ info:
     that do implement a rate limit, you will receive a http `429`
     response with the `retry-after` header set indicating after how many
     seconds you should restart making requests. 
-  version: 0.4.0
+  version: 0.5.1
 
 servers:
   - url: https://api.sidingsmedia.com/
