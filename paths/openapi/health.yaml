@@ -6,7 +6,7 @@ get:
   summary: Health check
   operationId: openapiHealth
   tags:
-    - static
+    - openapi
   responses:
     '200':
       $ref: ../../components/responses/HealthCheckOK.yaml
